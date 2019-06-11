@@ -78,11 +78,17 @@ Each configuration has exactly 9!/2 solutions.
 Data is represented in the linear tables couple:
 
 Index:
+
 0 1  2   3   4   5   6   7   ...
+
 Tree:
+
 X R0 LB0 DB2 LB1 DB1 LB3 DB3 ...  
+
 Parent state index table:
+
 X 0  1   1   2   2   3   3 ...
+
 
 First row represents the index in the table. The second row represents the 
 states of the puzzle. The index #0 is not used. The Parent state index table 
@@ -92,19 +98,32 @@ generated.
 The tree array keeps the values of pointers to the PTree structure:
 
 struct PuzzleTree
+
 {
+
 	Box anBox; // represents the state
+
 	// descendants
+
 	PuzzleTree *pUp;
+
 	PuzzleTree *pDown;
+
 	PuzzleTree *pRight;
+
 	PuzzleTree *pLeft;
+
 	// internal use
+
 	long lID;
+
 };
 
+
 typedef struct PuzzleTree PTree;
+
 typedef PTree *PTreePtr;
+
 
 The InitialState R0 is the goal state.
 
